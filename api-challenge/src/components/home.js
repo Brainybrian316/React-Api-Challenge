@@ -15,15 +15,19 @@ const Home = () => {
 			.catch((error) => console.log(error)); // catch any errors
 	};
 
-	// this is a higher order function because a function is being returned inside of a function
+	// function is being returned inside of a function aka higher order function
 	const handleClick = () => {
-		getData(); // this is a callback function because it is being passed into another function
+		getData(); // this is a callback function that is being passed into the event handler
 	};
 
-	/* on lines 26-27, we are using a ternary operator to check if data is truthy or falsy and then rendering the data accordingly
+	/* on lines 37-38, we are using a ternary operator to check if data is truthy or falsy and then rendering the data accordingly
   if data is truthy, we will map over the data and return a list of the data.
   if data is falsy, we will return null
    */
+
+	/* on line 36 we  have a button that will call the handleClick function when clicked  
+  to get the data from the API and set it to state
+  */
 
 	return (
 		<>
