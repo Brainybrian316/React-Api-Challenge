@@ -20,30 +20,29 @@ const Home = () => {
 		getData(); // this is a callback function that is being passed into the event handler
 	};
 
-	/* on lines 37-38, we are using a ternary operator to check if data is truthy or falsy and then rendering the data accordingly
-  if data is truthy, we will map over the data and return a list of the data.
-  if data is falsy, we will return null
-   */
+	/* on lines 33-35, we are using a ternary operator to check if the data is null. If it is null, we will display a message. If it is not null, we will display the data. */
 
-	/* on line 36 we  have a button that will call the handleClick function when clicked  
+	/* on line 32 we  have a button that will call the handleClick function when clicked  
   to get the data from the API and set it to state
   */
 
 	return (
 		<>
 			<h1>Api request</h1>
-			<p>To display the data click the button</p>
-			<button onClick={handleClick}>Display Data</button>
-			{data &&
-				data.map((user) => (
-					<div key={user.id}>
-						<ul>
-							<li>Name: {user.name}</li>
-							<li>Username: {user.name}</li>
-							<li>Email:{user.email}</li>
+			<button onClick={handleClick}>Get Data</button>
+			{data ? (
+				<div>
+					{data.map((user) => (
+						<ul key={user.id}>
+							<li>{user.name}</li>
+							<li>{user.email}</li>
+							<li>{user.website}</li>
 						</ul>
-					</div>
-				))}
+					))}
+				</div>
+			) : (
+				<p>Click the button to get the data</p>
+			)}
 		</>
 	);
 };
